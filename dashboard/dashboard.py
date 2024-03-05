@@ -4,20 +4,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-def combine_data(changping_file, wanliu_file):
-    df_changping = pd.read_csv(changping_file)
-    df_wanliu = pd.read_csv(wanliu_file)
-    df_changping['location'] = 'Changping'
-    df_wanliu['location'] = 'Wanliu'
-    
-    df_combined = pd.concat([df_changping, df_wanliu], ignore_index=True)
-    
-    return df_combined
+def combine_data(all_data_file):
+    # Read data from all_data.csv
+    df = pd.read_csv(all_data_file)
+    return df
 
-changping_file = os.path.join("..", "data", "changping.csv")
-wanliu_file = os.path.join("..", "data", "wanliu.csv")
+# File path for all_data.csv
+all_data_file = "all_data.csv"
 
-df = combine_data(changping_file, wanliu_file)
+# Combine data
+df = combine_data(all_data_file)
 
 st.title('Air Quality Index Dashboard')
 st.set_option('deprecation.showPyplotGlobalUse', False)
