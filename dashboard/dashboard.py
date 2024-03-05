@@ -2,18 +2,20 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
+import requests
+from io import StringIO
 
-def combine_data(all_data_file):
-    # Read data from all_data.csv
-    df = pd.read_csv(all_data_file)
+def combine_data(all_data_url):
+    # Read data from the raw GitHub URL
+    response = requests.get(all_data_url)
+    df = pd.read_csv(StringIO(response.text))
     return df
 
-# File path for all_data.csv
-all_data_file = "all_data.csv"
+# Raw GitHub URL for all_data.csv
+all_data_url = "https://raw.githubusercontent.com/danielwidhiarto/AQIDashboard/main/dashboard/all_data.csv"
 
 # Combine data
-df = combine_data(all_data_file)
+df = combine_data(all_data_url)
 
 st.title('Air Quality Index Dashboard')
 st.set_option('deprecation.showPyplotGlobalUse', False)
