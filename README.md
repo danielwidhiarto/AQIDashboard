@@ -10,8 +10,13 @@ This dashboard is built using Streamlit and displays various visualizations rela
 - [Scatter Plot for PM2.5 vs O3](#scatter-plot-for-pm25-vs-o3)
 - [Box Plot for PM10](#box-plot-for-pm10)
 
-## Usage
-
-1. Clone the repository:
+## Setup Enviroment
    ```sh
-   git clone https://github.com/your-username/air-quality-dashboard.git
+   conda create --name main-ds python=3.9
+   conda activate main-ds
+   pip install numpy pandas scipy matplotlib seaborn jupyter streamlit babel  
+
+## Run Streamlit App
+ ```sh
+   streamlit run dashboard.py
+

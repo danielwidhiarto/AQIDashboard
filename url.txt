@@ -1,1 +1,1 @@
-https://danielwidhiarto-aqidashboard.streamlit.app/w
+https://danielwidhiarto-aqidashboard.streamlit.app/
